@@ -9,8 +9,8 @@ For all vesting accounts, the owner of the vesting account is able to delegate a
 * Periodic vesting, where coins begin to vest at `T'` and vest periodically according to number of periods and the vesting amount per period. The number of periods, length per period, and amount per period are configurable.
 
 ## Note
-The current specification does not allow for vesting accounts to be created with normal messages after genesis. All vesting accounts must be created at genesis, or as part of a manual network upgarde.
-The current specification only allows for _unconditional_ vesting (ie. there is no poossibility of reaching `T` and having coins fail to vest).
+The current specification does not allow for vesting accounts to be created with normal messages after genesis. All vesting accounts must be created at genesis, or as part of a manual network upgrade.
+The current specification only allows for _unconditional_ vesting (ie. there is no possibility of reaching `T` and having coins fail to vest).
 
 
 ## Vesting Account Types
@@ -153,7 +153,7 @@ func (pva PeriodicVestingAccount) GetVestedCoins(t Time) Coins {
     if x>= periods[i].Length {
       vested += periods[i].Amount
       ct += periods[i].Length
-    }
+    } else {break}
   }
   return vested
 }
@@ -338,17 +338,21 @@ type GenesisAccount struct {
     // ...
 
     // vesting account fields
-    OriginalVesting  sdk.Coins `json:"original_vesting"`
-    DelegatedFree    sdk.Coins `json:"delegated_free"`
-    DelegatedVesting sdk.Coins `json:"delegated_vesting"`
-    StartTime        int64     `json:"start_time"`
-    EndTime          int64     `json:"end_time"`
+    OriginalVesting  sdk.Coins    `json:"original_vesting"`
+    DelegatedFree    sdk.Coins    `json:"delegated_free"`
+    DelegatedVesting sdk.Coins    `json:"delegated_vesting"`
+    StartTime        int64        `json:"start_time"`
+    EndTime          int64        `json:"end_time"`
+    VestingPeriods VestingPeriods `json:"vesting_periods"`
 }
 
 func ToAccount(gacc GenesisAccount) Account {
     bacc := NewBaseAccount(gacc)
 
     if gacc.OriginalVesting > 0 {
+        if len(ga.VestingPeriods) > 0 {
+            // return a periodic vesting account
+        }
         if ga.StartTime != 0 && ga.EndTime != 0 {
             // return a continuous vesting account
         } else if ga.EndTime != 0 {
@@ -362,10 +366,6 @@ func ToAccount(gacc GenesisAccount) Account {
     return bacc
 }
 ```
-
-## Exporting State
-
-<!-- TODO describe spec for exporting periodic vesting accounts. -->
 
 ## Examples
 
@@ -453,3 +453,4 @@ Same initial starting conditions as the simple example.
 - DelegatedVesting: The tracked amount of coins (per denomination) that are delegated from a vesting account that were vesting at time of delegation.
 - ContinuousVestingAccount: A vesting account implementation that vests coins linearly over time.
 - DelayedVestingAccount: A vesting account implementation that only fully vests all coins at a given time.
+- PeriodicVestingAccount: A vesting account implementation that vests coins according to a custom vesting schedule.
