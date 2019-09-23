@@ -18,6 +18,7 @@ var (
 	DefaultGenesisState           = types.DefaultGenesisState
 	RegisterCodec                 = types.RegisterCodec
 	ValidatorVestingAccountPrefix = types.ValidatorVestingAccountPrefix
+	BlocktimeKey                  = types.BlocktimeKey
 	ValidatorVestingAccountKey    = types.ValidatorVestingAccountKey
 	NewKeeper                     = keeper.NewKeeper
 )

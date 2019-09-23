@@ -11,11 +11,6 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 )
 
-var (
-	// BlocktimeKey key for the time of the previous block
-	BlocktimeKey = []byte{0x00}
-)
-
 // Keeper of the validatorvesting store
 type Keeper struct {
 	storeKey      sdk.StoreKey
@@ -47,7 +42,7 @@ func (k Keeper) Logger(ctx sdk.Context) log.Logger {
 // GetPreviousBlockTime get the blocktime for the previous block
 func (k Keeper) GetPreviousBlockTime(ctx sdk.Context) (blockTime time.Time) {
 	store := ctx.KVStore(k.storeKey)
-	b := store.Get(BlocktimeKey)
+	b := store.Get(types.BlocktimeKey)
 	if b == nil {
 		panic("Previous block time not set")
 	}
@@ -59,7 +54,7 @@ func (k Keeper) GetPreviousBlockTime(ctx sdk.Context) (blockTime time.Time) {
 func (k Keeper) SetPreviousBlockTime(ctx sdk.Context, blockTime time.Time) {
 	store := ctx.KVStore(k.storeKey)
 	b := k.cdc.MustMarshalBinaryLengthPrefixed(blockTime)
-	store.Set(BlocktimeKey, b)
+	store.Set(types.BlocktimeKey, b)
 }
 
 // UpdateMissingSignCount increments the count of blocks missed during the current period
