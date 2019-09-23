@@ -41,8 +41,9 @@ func BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock, k keeper.Keeper) 
 			if currentBlockTime.Unix() >= t && previousBlockTime.Unix() < t {
 				k.UpdateVestedCoinsProgress(ctx, key, i)
 			}
-			k.HandleVestingDebt(ctx, key, currentBlockTime)
 		}
+		// handle any new/remaining debt on the account
+		k.HandleVestingDebt(ctx, key, currentBlockTime)
 	}
 	k.SetPreviousBlockTime(ctx, currentBlockTime)
 }
