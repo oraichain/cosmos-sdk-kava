@@ -1,6 +1,7 @@
-// nolint
 package validatorvesting
 
+// nolint
+// DONTCOVER
 import (
 	"github.com/cosmos/cosmos-sdk/x/validator-vesting/internal/keeper"
 	"github.com/cosmos/cosmos-sdk/x/validator-vesting/internal/types"
