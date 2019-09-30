@@ -10,8 +10,8 @@ import (
 	tmtime "github.com/tendermint/tendermint/types/time"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
 	authexported "github.com/cosmos/cosmos-sdk/x/auth/exported"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 )
 
 var (
@@ -25,7 +25,7 @@ func TestGetVestedCoinsContVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 	cva := NewContinuousVestingAccount(&bacc, now.Unix(), endTime.Unix())
 
@@ -52,7 +52,7 @@ func TestGetVestingCoinsContVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 	cva := NewContinuousVestingAccount(&bacc, now.Unix(), endTime.Unix())
 
@@ -75,7 +75,7 @@ func TestSpendableCoinsContVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 	cva := NewContinuousVestingAccount(&bacc, now.Unix(), endTime.Unix())
 
@@ -115,7 +115,7 @@ func TestTrackDelegationContVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require the ability to delegate all vesting coins
@@ -162,7 +162,7 @@ func TestTrackUndelegationContVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require the ability to undelegate all vesting coins
@@ -218,7 +218,7 @@ func TestGetVestedCoinsDelVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require no coins are vested until schedule maturation
@@ -237,7 +237,7 @@ func TestGetVestingCoinsDelVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require all coins vesting at the beginning of the schedule
@@ -256,7 +256,7 @@ func TestSpendableCoinsDelVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require that no coins are spendable in the beginning of the vesting
@@ -297,7 +297,7 @@ func TestTrackDelegationDelVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require the ability to delegate all vesting coins
@@ -343,7 +343,7 @@ func TestTrackUndelegationDelVestingAcc(t *testing.T) {
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require the ability to undelegate all vesting coins
@@ -398,15 +398,15 @@ func TestTrackUndelegationDelVestingAcc(t *testing.T) {
 func TestGetVestedCoinsPeriodicVestingAcc(t *testing.T) {
 	now := tmtime.Now()
 	endTime := now.Add(24 * time.Hour)
-	periods := VestingPeriods{
-		VestingPeriod{PeriodLength: int64(12 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+	periods := Periods{
+		Period{Length: int64(12 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
 	}
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 	pva := NewPeriodicVestingAccount(&bacc, now.Unix(), periods)
 
@@ -444,16 +444,16 @@ func TestGetVestedCoinsPeriodicVestingAcc(t *testing.T) {
 func TestGetVestingCoinsPeriodicVestingAcc(t *testing.T) {
 	now := tmtime.Now()
 	endTime := now.Add(24 * time.Hour)
-	periods := VestingPeriods{
-		VestingPeriod{PeriodLength: int64(12 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+	periods := Periods{
+		Period{Length: int64(12 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
 	}
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{
 		sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 	pva := NewPeriodicVestingAccount(&bacc, now.Unix(), periods)
 
@@ -485,16 +485,16 @@ func TestGetVestingCoinsPeriodicVestingAcc(t *testing.T) {
 func TestSpendableCoinsPeriodicVestingAcc(t *testing.T) {
 	now := tmtime.Now()
 	endTime := now.Add(24 * time.Hour)
-	periods := VestingPeriods{
-		VestingPeriod{PeriodLength: int64(12 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+	periods := Periods{
+		Period{Length: int64(12 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
 	}
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{
 		sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 	pva := NewPeriodicVestingAccount(&bacc, now.Unix(), periods)
 
@@ -531,15 +531,15 @@ func TestSpendableCoinsPeriodicVestingAcc(t *testing.T) {
 func TestTrackDelegationPeriodicVestingAcc(t *testing.T) {
 	now := tmtime.Now()
 	endTime := now.Add(24 * time.Hour)
-	periods := VestingPeriods{
-		VestingPeriod{PeriodLength: int64(12 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+	periods := Periods{
+		Period{Length: int64(12 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
 	}
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require the ability to delegate all vesting coins
@@ -583,15 +583,15 @@ func TestTrackDelegationPeriodicVestingAcc(t *testing.T) {
 func TestTrackUndelegationPeriodicVestingAcc(t *testing.T) {
 	now := tmtime.Now()
 	endTime := now.Add(24 * time.Hour)
-	periods := VestingPeriods{
-		VestingPeriod{PeriodLength: int64(12 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
-		VestingPeriod{PeriodLength: int64(6 * 60 * 60), VestingAmount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+	periods := Periods{
+		Period{Length: int64(12 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 500), sdk.NewInt64Coin(stakeDenom, 50)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
+		Period{Length: int64(6 * 60 * 60), Amount: sdk.Coins{sdk.NewInt64Coin(feeDenom, 250), sdk.NewInt64Coin(stakeDenom, 25)}},
 	}
 
 	_, _, addr := KeyTestPubAddr()
 	origCoins := sdk.Coins{sdk.NewInt64Coin(feeDenom, 1000), sdk.NewInt64Coin(stakeDenom, 100)}
-	bacc := auth.NewBaseAccountWithAddress(addr)
+	bacc := authtypes.NewBaseAccountWithAddress(addr)
 	bacc.SetCoins(origCoins)
 
 	// require the ability to undelegate all vesting coins
@@ -644,8 +644,8 @@ func TestTrackUndelegationPeriodicVestingAcc(t *testing.T) {
 func TestGenesisAccountValidate(t *testing.T) {
 	pubkey := secp256k1.GenPrivKey().PubKey()
 	addr := sdk.AccAddress(pubkey.Address())
-	baseAcc := auth.NewBaseAccount(addr, nil, pubkey, 0, 0)
-	baseAccWithCoins := auth.NewBaseAccount(addr, nil, pubkey, 0, 0)
+	baseAcc := authtypes.NewBaseAccount(addr, nil, pubkey, 0, 0)
+	baseAccWithCoins := authtypes.NewBaseAccount(addr, nil, pubkey, 0, 0)
 	baseAccWithCoins.SetCoins(sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)})
 	tests := []struct {
 		name   string
@@ -659,7 +659,7 @@ func TestGenesisAccountValidate(t *testing.T) {
 		},
 		{
 			"invalid base valid account",
-			auth.NewBaseAccount(addr, sdk.NewCoins(), secp256k1.GenPrivKey().PubKey(), 0, 0),
+			authtypes.NewBaseAccount(addr, sdk.NewCoins(), secp256k1.GenPrivKey().PubKey(), 0, 0),
 			errors.New("pubkey and address pair is invalid"),
 		},
 		{
@@ -670,7 +670,7 @@ func TestGenesisAccountValidate(t *testing.T) {
 		{
 			"invalid vesting amount; empty Coins",
 			NewBaseVestingAccount(
-				auth.NewBaseAccount(addr, sdk.NewCoins(), pubkey, 0, 0),
+				authtypes.NewBaseAccount(addr, sdk.NewCoins(), pubkey, 0, 0),
 				sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)}, 100,
 			),
 			errors.New("vesting amount cannot be greater than total amount"),
@@ -678,7 +678,7 @@ func TestGenesisAccountValidate(t *testing.T) {
 		{
 			"invalid vesting amount; OriginalVesting > Coins",
 			NewBaseVestingAccount(
-				auth.NewBaseAccount(addr, sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 10)), pubkey, 0, 0),
+				authtypes.NewBaseAccount(addr, sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 10)), pubkey, 0, 0),
 				sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)}, 100,
 			),
 			errors.New("vesting amount cannot be greater than total amount"),
@@ -686,7 +686,7 @@ func TestGenesisAccountValidate(t *testing.T) {
 		{
 			"invalid vesting amount with multi coins",
 			NewBaseVestingAccount(
-				auth.NewBaseAccount(addr, sdk.NewCoins(sdk.NewInt64Coin("uatom", 50), sdk.NewInt64Coin("eth", 50)), pubkey, 0, 0),
+				authtypes.NewBaseAccount(addr, sdk.NewCoins(sdk.NewInt64Coin("uatom", 50), sdk.NewInt64Coin("eth", 50)), pubkey, 0, 0),
 				sdk.NewCoins(sdk.NewInt64Coin("uatom", 100), sdk.NewInt64Coin("eth", 20)), 100,
 			),
 			errors.New("vesting amount cannot be greater than total amount"),
@@ -703,27 +703,27 @@ func TestGenesisAccountValidate(t *testing.T) {
 		},
 		{
 			"valid periodic vesting account",
-			NewPeriodicVestingAccount(baseAccWithCoins, 100, VestingPeriods{VestingPeriod{PeriodLength: int64(50), VestingAmount: sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)}}}),
+			NewPeriodicVestingAccount(baseAccWithCoins, 100, Periods{Period{Length: int64(50), Amount: sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)}}}),
 			nil,
 		},
 		{
 			"invalid vesting period lengths",
 			NewPeriodicVestingAccountRaw(
 				NewBaseVestingAccount(
-					auth.NewBaseAccount(addr, sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)), pubkey, 0, 0),
+					authtypes.NewBaseAccount(addr, sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)), pubkey, 0, 0),
 					sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)}, 200,
 				),
-				100, VestingPeriods{VestingPeriod{PeriodLength: int64(50), VestingAmount: sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)}}}),
+				100, Periods{Period{Length: int64(50), Amount: sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)}}}),
 			errors.New("vesting end time does not match length of all vesting periods"),
 		},
 		{
 			"invalid vesting period amounts",
 			NewPeriodicVestingAccountRaw(
 				NewBaseVestingAccount(
-					auth.NewBaseAccount(addr, sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)), pubkey, 0, 0),
+					authtypes.NewBaseAccount(addr, sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)), pubkey, 0, 0),
 					sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 50)}, 200,
 				),
-				100, VestingPeriods{VestingPeriod{PeriodLength: int64(100), VestingAmount: sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 25)}}}),
+				100, Periods{Period{Length: int64(100), Amount: sdk.Coins{sdk.NewInt64Coin(sdk.DefaultBondDenom, 25)}}}),
 			errors.New("original vesting coins does not match the sum of all coins in vesting periods"),
 		},
 	}
