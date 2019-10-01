@@ -44,6 +44,7 @@ var (
 	// and genesis verification.
 	ModuleBasics = module.NewBasicManager(
 		auth.AppModuleBasic{},
+		validatorvesting.AppModuleBasic{},
 		supply.AppModuleBasic{},
 		genutil.AppModuleBasic{},
 		bank.AppModuleBasic{},
@@ -73,7 +74,6 @@ var (
 func MakeCodec() *codec.Codec {
 	var cdc = codec.New()
 	ModuleBasics.RegisterCodec(cdc)
-	validatorvesting.RegisterCodec(cdc)
 	sdk.RegisterCodec(cdc)
 	codec.RegisterCrypto(cdc)
 	return cdc
@@ -191,7 +191,7 @@ func NewSimApp(
 		slashing.NewAppModule(app.SlashingKeeper, app.StakingKeeper),
 		staking.NewAppModule(app.StakingKeeper, app.AccountKeeper, app.SupplyKeeper),
 		nft.NewAppModule(app.NFTKeeper),
-		validatorvesting.NewAppModule(app.VVKeeper),
+		validatorvesting.NewAppModule(app.VVKeeper, app.AccountKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -220,7 +220,7 @@ func NewSimApp(
 	// transactions
 	app.sm = module.NewSimulationManager(
 		auth.NewAppModule(app.AccountKeeper),
-		validatorvesting.NewAppModule(app.VVKeeper),
+		validatorvesting.NewAppModule(app.VVKeeper, app.AccountKeeper),
 		bank.NewAppModule(app.BankKeeper, app.AccountKeeper),
 		supply.NewAppModule(app.SupplyKeeper, app.AccountKeeper),
 		gov.NewAppModule(app.GovKeeper, app.SupplyKeeper),

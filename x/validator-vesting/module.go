@@ -82,15 +82,17 @@ func (AppModuleSimulation) RandomizedParams(_ *rand.Rand) []sim.ParamChange {
 type AppModule struct {
 	AppModuleBasic
 	AppModuleSimulation
-	keeper Keeper
+	keeper        Keeper
+	accountKeeper types.AccountKeeper
 }
 
 // NewAppModule creates a new AppModule object
-func NewAppModule(keeper Keeper) AppModule {
+func NewAppModule(keeper Keeper, ak types.AccountKeeper) AppModule {
 	return AppModule{
 		AppModuleBasic:      AppModuleBasic{},
 		AppModuleSimulation: AppModuleSimulation{},
 		keeper:              keeper,
+		accountKeeper:       ak,
 	}
 }
 
@@ -123,7 +125,7 @@ func (am AppModule) NewQuerierHandler() sdk.Querier {
 func (am AppModule) InitGenesis(ctx sdk.Context, data json.RawMessage) []abci.ValidatorUpdate {
 	var genesisState GenesisState
 	types.ModuleCdc.MustUnmarshalJSON(data, &genesisState)
-	InitGenesis(ctx, am.keeper, genesisState)
+	InitGenesis(ctx, am.keeper, am.accountKeeper, genesisState)
 	return []abci.ValidatorUpdate{}
 }
 
