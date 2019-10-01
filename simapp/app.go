@@ -27,6 +27,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/slashing"
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	"github.com/cosmos/cosmos-sdk/x/supply"
+	validatorvesting "github.com/cosmos/cosmos-sdk/x/validator-vesting"
 )
 
 const appName = "SimApp"
@@ -58,12 +59,13 @@ var (
 
 	// module account permissions
 	maccPerms = map[string][]string{
-		auth.FeeCollectorName:     nil,
-		distr.ModuleName:          nil,
-		mint.ModuleName:           {supply.Minter},
-		staking.BondedPoolName:    {supply.Burner, supply.Staking},
-		staking.NotBondedPoolName: {supply.Burner, supply.Staking},
-		gov.ModuleName:            {supply.Burner},
+		auth.FeeCollectorName:       nil,
+		distr.ModuleName:            nil,
+		mint.ModuleName:             {supply.Minter},
+		staking.BondedPoolName:      {supply.Burner, supply.Staking},
+		staking.NotBondedPoolName:   {supply.Burner, supply.Staking},
+		gov.ModuleName:              {supply.Burner},
+		validatorvesting.ModuleName: {supply.Burner},
 	}
 )
 
@@ -71,6 +73,7 @@ var (
 func MakeCodec() *codec.Codec {
 	var cdc = codec.New()
 	ModuleBasics.RegisterCodec(cdc)
+	validatorvesting.RegisterCodec(cdc)
 	sdk.RegisterCodec(cdc)
 	codec.RegisterCrypto(cdc)
 	return cdc
@@ -101,6 +104,7 @@ type SimApp struct {
 	CrisisKeeper   crisis.Keeper
 	ParamsKeeper   params.Keeper
 	NFTKeeper      nft.Keeper
+	VVKeeper       validatorvesting.Keeper
 
 	// the module manager
 	mm *module.Manager
@@ -123,7 +127,7 @@ func NewSimApp(
 
 	keys := sdk.NewKVStoreKeys(bam.MainStoreKey, auth.StoreKey, staking.StoreKey,
 		supply.StoreKey, mint.StoreKey, distr.StoreKey, slashing.StoreKey,
-		gov.StoreKey, params.StoreKey, nft.StoreKey)
+		gov.StoreKey, params.StoreKey, nft.StoreKey, validatorvesting.StoreKey)
 	tkeys := sdk.NewTransientStoreKeys(params.TStoreKey)
 
 	app := &SimApp{
@@ -158,7 +162,7 @@ func NewSimApp(
 		slashingSubspace, slashing.DefaultCodespace)
 	app.CrisisKeeper = crisis.NewKeeper(crisisSubspace, invCheckPeriod, app.SupplyKeeper, auth.FeeCollectorName)
 	app.NFTKeeper = nft.NewKeeper(app.cdc, keys[nft.StoreKey])
-
+	app.VVKeeper = validatorvesting.NewKeeper(app.cdc, keys[validatorvesting.StoreKey], app.AccountKeeper, app.BankKeeper, app.SupplyKeeper, &stakingKeeper)
 	// register the proposal types
 	govRouter := gov.NewRouter()
 	govRouter.AddRoute(gov.RouterKey, gov.ProposalHandler).
@@ -187,22 +191,24 @@ func NewSimApp(
 		slashing.NewAppModule(app.SlashingKeeper, app.StakingKeeper),
 		staking.NewAppModule(app.StakingKeeper, app.AccountKeeper, app.SupplyKeeper),
 		nft.NewAppModule(app.NFTKeeper),
+		validatorvesting.NewAppModule(app.VVKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
 	// there is nothing left over in the validator fee pool, so as to keep the
 	// CanWithdrawInvariant invariant.
-	app.mm.SetOrderBeginBlockers(mint.ModuleName, distr.ModuleName, slashing.ModuleName)
+	app.mm.SetOrderBeginBlockers(mint.ModuleName, distr.ModuleName, slashing.ModuleName, validatorvesting.ModuleName)
 
 	app.mm.SetOrderEndBlockers(crisis.ModuleName, gov.ModuleName, staking.ModuleName)
 
 	// NOTE: The genutils moodule must occur after staking so that pools are
 	// properly initialized with tokens from genesis accounts.
 	app.mm.SetOrderInitGenesis(
-		auth.ModuleName, distr.ModuleName, staking.ModuleName,
+		auth.ModuleName, validatorvesting.ModuleName,
+		distr.ModuleName, staking.ModuleName,
 		bank.ModuleName, slashing.ModuleName, gov.ModuleName,
-		mint.ModuleName, supply.ModuleName, crisis.ModuleName, nft.ModuleName,
-		genutil.ModuleName,
+		mint.ModuleName, supply.ModuleName,
+		crisis.ModuleName, nft.ModuleName, genutil.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
@@ -214,6 +220,7 @@ func NewSimApp(
 	// transactions
 	app.sm = module.NewSimulationManager(
 		auth.NewAppModule(app.AccountKeeper),
+		validatorvesting.NewAppModule(app.VVKeeper),
 		bank.NewAppModule(app.BankKeeper, app.AccountKeeper),
 		supply.NewAppModule(app.SupplyKeeper, app.AccountKeeper),
 		gov.NewAppModule(app.GovKeeper, app.SupplyKeeper),
