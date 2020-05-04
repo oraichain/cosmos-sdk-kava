@@ -9,7 +9,7 @@ import (
 	"github.com/kava-labs/cosmos-sdk/store/types"
 
 	"github.com/stretchr/testify/require"
-	"github.com/tendermint/iavl"
+	"github.com/kava-labs/iavl"
 	dbm "github.com/tendermint/tm-db"
 )
 

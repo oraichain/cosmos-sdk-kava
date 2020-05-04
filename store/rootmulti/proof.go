@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tendermint/iavl"
+	"github.com/kava-labs/iavl"
 	"github.com/kava-labs/tendermint/crypto/merkle"
 )
 

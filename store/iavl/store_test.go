@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/tendermint/iavl"
+	"github.com/kava-labs/iavl"
 	abci "github.com/kava-labs/tendermint/abci/types"
 	dbm "github.com/tendermint/tm-db"
 

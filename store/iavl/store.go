@@ -6,7 +6,7 @@ import (
 	"sync"
 
 	"github.com/pkg/errors"
-	"github.com/tendermint/iavl"
+	"github.com/kava-labs/iavl"
 	abci "github.com/kava-labs/tendermint/abci/types"
 	"github.com/kava-labs/tendermint/crypto/merkle"
 	tmkv "github.com/kava-labs/tendermint/libs/kv"
