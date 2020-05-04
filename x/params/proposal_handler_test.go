@@ -4,17 +4,17 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/libs/log"
+	abci "github.com/kava-labs/tendermint/abci/types"
+	"github.com/kava-labs/tendermint/libs/log"
 
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/store"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/params"
-	"github.com/cosmos/cosmos-sdk/x/params/subspace"
-	"github.com/cosmos/cosmos-sdk/x/params/types"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	"github.com/kava-labs/cosmos-sdk/store"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/x/params"
+	"github.com/kava-labs/cosmos-sdk/x/params/subspace"
+	"github.com/kava-labs/cosmos-sdk/x/params/types"
 )
 
 func validateNoOp(_ interface{}) error { return nil }

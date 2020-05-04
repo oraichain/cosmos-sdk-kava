@@ -6,10 +6,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/cosmos/cosmos-sdk/client/input"
-	"github.com/cosmos/cosmos-sdk/crypto/keys"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/client/flags"
+	"github.com/kava-labs/cosmos-sdk/client/input"
+	"github.com/kava-labs/cosmos-sdk/crypto/keys"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"

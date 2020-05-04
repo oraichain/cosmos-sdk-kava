@@ -1,13 +1,13 @@
 package mock
 
 import (
-	"github.com/tendermint/tendermint/crypto"
+	"github.com/kava-labs/tendermint/crypto"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	"github.com/cosmos/cosmos-sdk/x/supply"
-	"github.com/cosmos/cosmos-sdk/x/supply/exported"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	sdkerrors "github.com/kava-labs/cosmos-sdk/types/errors"
+	"github.com/kava-labs/cosmos-sdk/x/auth"
+	"github.com/kava-labs/cosmos-sdk/x/supply"
+	"github.com/kava-labs/cosmos-sdk/x/supply/exported"
 )
 
 // DummySupplyKeeper defines a supply keeper used only for testing to avoid

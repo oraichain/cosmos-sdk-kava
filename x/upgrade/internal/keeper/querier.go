@@ -3,11 +3,11 @@ package keeper
 import (
 	"encoding/binary"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/kava-labs/tendermint/abci/types"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cosmos/cosmos-sdk/x/upgrade/internal/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	sdkerrors "github.com/kava-labs/cosmos-sdk/types/errors"
+	"github.com/kava-labs/cosmos-sdk/x/upgrade/internal/types"
 )
 
 // NewQuerier creates a querier for upgrade cli and REST endpoints

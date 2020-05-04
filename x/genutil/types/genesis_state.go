@@ -5,12 +5,12 @@ import (
 	"errors"
 	"fmt"
 
-	tmos "github.com/tendermint/tendermint/libs/os"
-	tmtypes "github.com/tendermint/tendermint/types"
+	tmos "github.com/kava-labs/tendermint/libs/os"
+	tmtypes "github.com/kava-labs/tendermint/types"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	authtypes "github.com/kava-labs/cosmos-sdk/x/auth/types"
+	stakingtypes "github.com/kava-labs/cosmos-sdk/x/staking/types"
 )
 
 // GenesisState defines the raw genesis transaction in JSON

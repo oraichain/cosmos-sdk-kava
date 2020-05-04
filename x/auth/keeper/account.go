@@ -1,9 +1,9 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth/exported"
-	"github.com/cosmos/cosmos-sdk/x/auth/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/x/auth/exported"
+	"github.com/kava-labs/cosmos-sdk/x/auth/types"
 )
 
 // NewAccountWithAddress implements sdk.AccountKeeper.

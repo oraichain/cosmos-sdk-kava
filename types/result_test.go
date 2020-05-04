@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/cosmos/cosmos-sdk/codec"
+	"github.com/kava-labs/cosmos-sdk/codec"
 )
 
 func TestParseABCILog(t *testing.T) {

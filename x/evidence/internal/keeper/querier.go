@@ -3,14 +3,14 @@ package keeper
 import (
 	"encoding/hex"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cosmos/cosmos-sdk/x/evidence/exported"
-	"github.com/cosmos/cosmos-sdk/x/evidence/internal/types"
+	"github.com/kava-labs/cosmos-sdk/client"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	sdkerrors "github.com/kava-labs/cosmos-sdk/types/errors"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/exported"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/internal/types"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/kava-labs/tendermint/abci/types"
 )
 
 func NewQuerier(k Keeper) sdk.Querier {

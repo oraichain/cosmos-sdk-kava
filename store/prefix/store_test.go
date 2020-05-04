@@ -4,11 +4,11 @@ import (
 	"crypto/rand"
 	"testing"
 
-	"github.com/cosmos/cosmos-sdk/store/dbadapter"
-	"github.com/cosmos/cosmos-sdk/store/gaskv"
-	"github.com/cosmos/cosmos-sdk/store/iavl"
-	"github.com/cosmos/cosmos-sdk/store/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/store/dbadapter"
+	"github.com/kava-labs/cosmos-sdk/store/gaskv"
+	"github.com/kava-labs/cosmos-sdk/store/iavl"
+	"github.com/kava-labs/cosmos-sdk/store/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 
 	"github.com/stretchr/testify/require"
 
@@ -235,7 +235,7 @@ func TestPrefixStoreReverseIteratorEdgeCase(t *testing.T) {
 	iter.Close()
 }
 
-// Tests below are ported from https://github.com/tendermint/tendermint/blob/master/libs/db/prefix_db_test.go
+// Tests below are ported from https://github.com/kava-labs/tendermint/blob/master/libs/db/prefix_db_test.go
 
 func mockStoreWithStuff() types.KVStore {
 	db := dbm.NewMemDB()

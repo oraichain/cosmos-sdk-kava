@@ -3,13 +3,13 @@ package keys
 import (
 	"testing"
 
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/cosmos/cosmos-sdk/tests"
+	"github.com/kava-labs/cosmos-sdk/client/flags"
+	"github.com/kava-labs/cosmos-sdk/tests"
 
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/tendermint/tendermint/libs/cli"
+	"github.com/kava-labs/tendermint/libs/cli"
 )
 
 func Test_runMigrateCmd(t *testing.T) {

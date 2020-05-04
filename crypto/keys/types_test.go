@@ -5,11 +5,11 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/tendermint/tendermint/crypto/secp256k1"
+	"github.com/kava-labs/tendermint/crypto/secp256k1"
 
-	"github.com/cosmos/cosmos-sdk/crypto/keys/hd"
-	"github.com/cosmos/cosmos-sdk/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/crypto/keys/hd"
+	"github.com/kava-labs/cosmos-sdk/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 )
 
 func Test_writeReadLedgerInfo(t *testing.T) {

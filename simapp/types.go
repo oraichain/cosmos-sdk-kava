@@ -3,12 +3,12 @@ package simapp
 import (
 	"encoding/json"
 
-	abci "github.com/tendermint/tendermint/abci/types"
-	tmtypes "github.com/tendermint/tendermint/types"
+	abci "github.com/kava-labs/tendermint/abci/types"
+	tmtypes "github.com/kava-labs/tendermint/types"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/types/module"
 )
 
 // App implements the common methods for a Cosmos SDK-based application

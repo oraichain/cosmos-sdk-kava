@@ -3,11 +3,11 @@ package keys
 import (
 	"fmt"
 
-	"github.com/tendermint/tendermint/crypto"
-	"github.com/tendermint/tendermint/crypto/multisig"
+	"github.com/kava-labs/tendermint/crypto"
+	"github.com/kava-labs/tendermint/crypto/multisig"
 
-	"github.com/cosmos/cosmos-sdk/crypto/keys/hd"
-	"github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/crypto/keys/hd"
+	"github.com/kava-labs/cosmos-sdk/types"
 )
 
 // Keybase exposes operations on a generic keystore

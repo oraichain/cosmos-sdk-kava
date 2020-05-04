@@ -7,14 +7,14 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/tendermint/tendermint/libs/cli"
-	tmtypes "github.com/tendermint/tendermint/types"
+	"github.com/kava-labs/tendermint/libs/cli"
+	tmtypes "github.com/kava-labs/tendermint/types"
 
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/server"
-	"github.com/cosmos/cosmos-sdk/x/genutil"
-	"github.com/cosmos/cosmos-sdk/x/genutil/types"
+	"github.com/kava-labs/cosmos-sdk/client/flags"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	"github.com/kava-labs/cosmos-sdk/server"
+	"github.com/kava-labs/cosmos-sdk/x/genutil"
+	"github.com/kava-labs/cosmos-sdk/x/genutil/types"
 )
 
 const flagGenTxDir = "gentx-dir"

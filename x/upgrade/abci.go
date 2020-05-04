@@ -3,9 +3,9 @@ package upgrade
 import (
 	"fmt"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/kava-labs/tendermint/abci/types"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 )
 
 // BeginBlock will check if there is a scheduled plan and if it is ready to be executed.

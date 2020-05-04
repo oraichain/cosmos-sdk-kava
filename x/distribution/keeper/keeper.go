@@ -3,13 +3,13 @@ package keeper
 import (
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cosmos/cosmos-sdk/x/distribution/types"
-	"github.com/cosmos/cosmos-sdk/x/params"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	sdkerrors "github.com/kava-labs/cosmos-sdk/types/errors"
+	"github.com/kava-labs/cosmos-sdk/x/distribution/types"
+	"github.com/kava-labs/cosmos-sdk/x/params"
 
-	"github.com/tendermint/tendermint/libs/log"
+	"github.com/kava-labs/tendermint/libs/log"
 )
 
 // Keeper of the distribution store

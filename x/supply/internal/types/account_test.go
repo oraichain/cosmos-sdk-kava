@@ -8,11 +8,11 @@ import (
 
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/tendermint/tendermint/crypto/secp256k1"
+	"github.com/kava-labs/tendermint/crypto/secp256k1"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authexported "github.com/cosmos/cosmos-sdk/x/auth/exported"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	authexported "github.com/kava-labs/cosmos-sdk/x/auth/exported"
+	authtypes "github.com/kava-labs/cosmos-sdk/x/auth/types"
 
 	"github.com/stretchr/testify/require"
 )

@@ -3,9 +3,9 @@ package client
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/cosmos/cosmos-sdk/client/context"
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/x/gov/client/rest"
+	"github.com/kava-labs/cosmos-sdk/client/context"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	"github.com/kava-labs/cosmos-sdk/x/gov/client/rest"
 )
 
 // function to create the rest handler

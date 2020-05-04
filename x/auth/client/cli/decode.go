@@ -8,9 +8,9 @@ import (
 	"github.com/spf13/viper"
 	"github.com/tendermint/go-amino"
 
-	"github.com/cosmos/cosmos-sdk/client/context"
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	"github.com/kava-labs/cosmos-sdk/client/context"
+	"github.com/kava-labs/cosmos-sdk/client/flags"
+	authtypes "github.com/kava-labs/cosmos-sdk/x/auth/types"
 )
 
 const flagHex = "hex"

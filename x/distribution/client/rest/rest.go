@@ -5,13 +5,13 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/cosmos/cosmos-sdk/client/context"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/rest"
-	"github.com/cosmos/cosmos-sdk/x/auth/client/utils"
-	"github.com/cosmos/cosmos-sdk/x/distribution/types"
-	"github.com/cosmos/cosmos-sdk/x/gov"
-	govrest "github.com/cosmos/cosmos-sdk/x/gov/client/rest"
+	"github.com/kava-labs/cosmos-sdk/client/context"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/types/rest"
+	"github.com/kava-labs/cosmos-sdk/x/auth/client/utils"
+	"github.com/kava-labs/cosmos-sdk/x/distribution/types"
+	"github.com/kava-labs/cosmos-sdk/x/gov"
+	govrest "github.com/kava-labs/cosmos-sdk/x/gov/client/rest"
 )
 
 // RegisterRoutes register distribution REST routes.

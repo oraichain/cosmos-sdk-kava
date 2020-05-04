@@ -5,12 +5,12 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	tmrand "github.com/tendermint/tendermint/libs/rand"
+	tmrand "github.com/kava-labs/tendermint/libs/rand"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/store/cachekv"
-	"github.com/cosmos/cosmos-sdk/store/dbadapter"
-	"github.com/cosmos/cosmos-sdk/store/types"
+	"github.com/kava-labs/cosmos-sdk/store/cachekv"
+	"github.com/kava-labs/cosmos-sdk/store/dbadapter"
+	"github.com/kava-labs/cosmos-sdk/store/types"
 )
 
 func newCacheKVStore() types.CacheKVStore {

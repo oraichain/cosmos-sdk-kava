@@ -5,12 +5,12 @@ import (
 	"errors"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authexported "github.com/cosmos/cosmos-sdk/x/auth/exported"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	vestexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	authexported "github.com/kava-labs/cosmos-sdk/x/auth/exported"
+	authtypes "github.com/kava-labs/cosmos-sdk/x/auth/types"
+	vestexported "github.com/kava-labs/cosmos-sdk/x/auth/vesting/exported"
 
-	"github.com/tendermint/tendermint/crypto"
+	"github.com/kava-labs/tendermint/crypto"
 	"gopkg.in/yaml.v2"
 )
 

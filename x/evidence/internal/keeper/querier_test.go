@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"strings"
 
-	"github.com/cosmos/cosmos-sdk/x/evidence/exported"
-	"github.com/cosmos/cosmos-sdk/x/evidence/internal/types"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/exported"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/internal/types"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/kava-labs/tendermint/abci/types"
 )
 
 const (

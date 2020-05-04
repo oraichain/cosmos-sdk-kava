@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tendermint/tendermint/libs/log"
+	"github.com/kava-labs/tendermint/libs/log"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	authexported "github.com/cosmos/cosmos-sdk/x/auth/exported"
-	vestexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
-	"github.com/cosmos/cosmos-sdk/x/bank/internal/types"
-	"github.com/cosmos/cosmos-sdk/x/params"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	sdkerrors "github.com/kava-labs/cosmos-sdk/types/errors"
+	authexported "github.com/kava-labs/cosmos-sdk/x/auth/exported"
+	vestexported "github.com/kava-labs/cosmos-sdk/x/auth/vesting/exported"
+	"github.com/kava-labs/cosmos-sdk/x/bank/internal/types"
+	"github.com/kava-labs/cosmos-sdk/x/params"
 )
 
 var _ Keeper = (*BaseKeeper)(nil)

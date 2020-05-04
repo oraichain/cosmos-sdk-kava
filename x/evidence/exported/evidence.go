@@ -1,9 +1,9 @@
 package exported
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 
-	tmbytes "github.com/tendermint/tendermint/libs/bytes"
+	tmbytes "github.com/kava-labs/tendermint/libs/bytes"
 )
 
 // Evidence defines the contract which concrete evidence types of misbehavior

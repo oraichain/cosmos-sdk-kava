@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 
-	"github.com/cosmos/cosmos-sdk/store/prefix"
+	"github.com/kava-labs/cosmos-sdk/store/prefix"
 )
 
 const (

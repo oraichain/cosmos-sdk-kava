@@ -5,14 +5,14 @@ import (
 	"path/filepath"
 	"time"
 
-	cfg "github.com/tendermint/tendermint/config"
-	"github.com/tendermint/tendermint/crypto"
-	tmos "github.com/tendermint/tendermint/libs/os"
-	"github.com/tendermint/tendermint/p2p"
-	"github.com/tendermint/tendermint/privval"
-	tmtypes "github.com/tendermint/tendermint/types"
+	cfg "github.com/kava-labs/tendermint/config"
+	"github.com/kava-labs/tendermint/crypto"
+	tmos "github.com/kava-labs/tendermint/libs/os"
+	"github.com/kava-labs/tendermint/p2p"
+	"github.com/kava-labs/tendermint/privval"
+	tmtypes "github.com/kava-labs/tendermint/types"
 
-	"github.com/cosmos/cosmos-sdk/server"
+	"github.com/kava-labs/cosmos-sdk/server"
 )
 
 // ExportGenesisFile creates and writes the genesis configuration to disk. An

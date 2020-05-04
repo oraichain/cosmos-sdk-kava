@@ -8,14 +8,14 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/tendermint/tendermint/crypto/secp256k1"
-	tmtypes "github.com/tendermint/tendermint/types"
+	"github.com/kava-labs/tendermint/crypto/secp256k1"
+	tmtypes "github.com/kava-labs/tendermint/types"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	simapparams "github.com/cosmos/cosmos-sdk/simapp/params"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	"github.com/cosmos/cosmos-sdk/x/simulation"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	simapparams "github.com/kava-labs/cosmos-sdk/simapp/params"
+	"github.com/kava-labs/cosmos-sdk/types/module"
+	"github.com/kava-labs/cosmos-sdk/x/auth"
+	"github.com/kava-labs/cosmos-sdk/x/simulation"
 )
 
 // AppStateFn returns the initial application state using a genesis or the simulation parameters.

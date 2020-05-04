@@ -4,10 +4,10 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/tendermint/tendermint/crypto/ed25519"
+	"github.com/kava-labs/tendermint/crypto/ed25519"
 
-	"github.com/cosmos/cosmos-sdk/x/evidence/exported"
-	"github.com/cosmos/cosmos-sdk/x/evidence/internal/types"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/exported"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/internal/types"
 )
 
 func TestDefaultGenesisState(t *testing.T) {

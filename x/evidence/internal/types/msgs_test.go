@@ -3,12 +3,12 @@ package types_test
 import (
 	"testing"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/evidence/exported"
-	"github.com/cosmos/cosmos-sdk/x/evidence/internal/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/exported"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/internal/types"
 
 	"github.com/stretchr/testify/require"
-	"github.com/tendermint/tendermint/crypto/ed25519"
+	"github.com/kava-labs/tendermint/crypto/ed25519"
 )
 
 func TestMsgSubmitEvidence(t *testing.T) {

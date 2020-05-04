@@ -8,12 +8,12 @@ import (
 
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/tendermint/tendermint/crypto"
+	"github.com/kava-labs/tendermint/crypto"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authexported "github.com/cosmos/cosmos-sdk/x/auth/exported"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/cosmos/cosmos-sdk/x/supply/exported"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	authexported "github.com/kava-labs/cosmos-sdk/x/auth/exported"
+	authtypes "github.com/kava-labs/cosmos-sdk/x/auth/types"
+	"github.com/kava-labs/cosmos-sdk/x/supply/exported"
 )
 
 var (

@@ -3,14 +3,14 @@ package evidence_test
 import (
 	"testing"
 
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/crypto/ed25519"
+	abci "github.com/kava-labs/tendermint/abci/types"
+	"github.com/kava-labs/tendermint/crypto/ed25519"
 
-	"github.com/cosmos/cosmos-sdk/simapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/evidence"
-	"github.com/cosmos/cosmos-sdk/x/evidence/exported"
-	"github.com/cosmos/cosmos-sdk/x/evidence/internal/types"
+	"github.com/kava-labs/cosmos-sdk/simapp"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/x/evidence"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/exported"
+	"github.com/kava-labs/cosmos-sdk/x/evidence/internal/types"
 
 	"github.com/stretchr/testify/suite"
 )

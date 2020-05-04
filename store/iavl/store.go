@@ -7,15 +7,15 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/tendermint/iavl"
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/crypto/merkle"
-	tmkv "github.com/tendermint/tendermint/libs/kv"
+	abci "github.com/kava-labs/tendermint/abci/types"
+	"github.com/kava-labs/tendermint/crypto/merkle"
+	tmkv "github.com/kava-labs/tendermint/libs/kv"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/store/cachekv"
-	"github.com/cosmos/cosmos-sdk/store/tracekv"
-	"github.com/cosmos/cosmos-sdk/store/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	"github.com/kava-labs/cosmos-sdk/store/cachekv"
+	"github.com/kava-labs/cosmos-sdk/store/tracekv"
+	"github.com/kava-labs/cosmos-sdk/store/types"
+	sdkerrors "github.com/kava-labs/cosmos-sdk/types/errors"
 )
 
 const (

@@ -3,10 +3,10 @@ package types
 import (
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	stakingexported "github.com/cosmos/cosmos-sdk/x/staking/exported"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	stakingexported "github.com/kava-labs/cosmos-sdk/x/staking/exported"
 
-	"github.com/tendermint/tendermint/crypto"
+	"github.com/kava-labs/tendermint/crypto"
 )
 
 type (

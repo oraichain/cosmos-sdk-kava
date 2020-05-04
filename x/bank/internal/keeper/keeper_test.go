@@ -5,17 +5,17 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	abci "github.com/tendermint/tendermint/abci/types"
-	tmkv "github.com/tendermint/tendermint/libs/kv"
-	tmtime "github.com/tendermint/tendermint/types/time"
+	abci "github.com/kava-labs/tendermint/abci/types"
+	tmkv "github.com/kava-labs/tendermint/libs/kv"
+	tmtime "github.com/kava-labs/tendermint/types/time"
 
-	"github.com/cosmos/cosmos-sdk/simapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	"github.com/cosmos/cosmos-sdk/x/auth/vesting"
-	keep "github.com/cosmos/cosmos-sdk/x/bank/internal/keeper"
-	"github.com/cosmos/cosmos-sdk/x/bank/internal/types"
-	"github.com/cosmos/cosmos-sdk/x/supply"
+	"github.com/kava-labs/cosmos-sdk/simapp"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/x/auth"
+	"github.com/kava-labs/cosmos-sdk/x/auth/vesting"
+	keep "github.com/kava-labs/cosmos-sdk/x/bank/internal/keeper"
+	"github.com/kava-labs/cosmos-sdk/x/bank/internal/types"
+	"github.com/kava-labs/cosmos-sdk/x/supply"
 )
 
 func TestKeeper(t *testing.T) {

@@ -7,18 +7,18 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/crypto/secp256k1"
+	abci "github.com/kava-labs/tendermint/abci/types"
+	"github.com/kava-labs/tendermint/crypto/secp256k1"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	authexported "github.com/cosmos/cosmos-sdk/x/auth/exported"
-	"github.com/cosmos/cosmos-sdk/x/bank"
-	"github.com/cosmos/cosmos-sdk/x/mock"
-	"github.com/cosmos/cosmos-sdk/x/staking"
-	"github.com/cosmos/cosmos-sdk/x/staking/types"
-	"github.com/cosmos/cosmos-sdk/x/supply"
-	supplyexported "github.com/cosmos/cosmos-sdk/x/supply/exported"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/x/auth"
+	authexported "github.com/kava-labs/cosmos-sdk/x/auth/exported"
+	"github.com/kava-labs/cosmos-sdk/x/bank"
+	"github.com/kava-labs/cosmos-sdk/x/mock"
+	"github.com/kava-labs/cosmos-sdk/x/staking"
+	"github.com/kava-labs/cosmos-sdk/x/staking/types"
+	"github.com/kava-labs/cosmos-sdk/x/supply"
+	supplyexported "github.com/kava-labs/cosmos-sdk/x/supply/exported"
 )
 
 var (

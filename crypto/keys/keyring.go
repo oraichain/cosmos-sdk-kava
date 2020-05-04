@@ -15,14 +15,14 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/tendermint/crypto/bcrypt"
-	"github.com/tendermint/tendermint/crypto"
-	tmcrypto "github.com/tendermint/tendermint/crypto"
-	cryptoAmino "github.com/tendermint/tendermint/crypto/encoding/amino"
+	"github.com/kava-labs/tendermint/crypto"
+	tmcrypto "github.com/kava-labs/tendermint/crypto"
+	cryptoAmino "github.com/kava-labs/tendermint/crypto/encoding/amino"
 
-	"github.com/cosmos/cosmos-sdk/client/input"
-	"github.com/cosmos/cosmos-sdk/crypto/keys/keyerror"
-	"github.com/cosmos/cosmos-sdk/crypto/keys/mintkey"
-	"github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/client/input"
+	"github.com/kava-labs/cosmos-sdk/crypto/keys/keyerror"
+	"github.com/kava-labs/cosmos-sdk/crypto/keys/mintkey"
+	"github.com/kava-labs/cosmos-sdk/types"
 )
 
 const (

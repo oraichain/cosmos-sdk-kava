@@ -6,13 +6,13 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-	tmcrypto "github.com/tendermint/tendermint/crypto"
-	cryptoAmino "github.com/tendermint/tendermint/crypto/encoding/amino"
+	tmcrypto "github.com/kava-labs/tendermint/crypto"
+	cryptoAmino "github.com/kava-labs/tendermint/crypto/encoding/amino"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/crypto/keys/keyerror"
-	"github.com/cosmos/cosmos-sdk/crypto/keys/mintkey"
-	"github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/crypto/keys/keyerror"
+	"github.com/kava-labs/cosmos-sdk/crypto/keys/mintkey"
+	"github.com/kava-labs/cosmos-sdk/types"
 )
 
 var _ Keybase = dbKeybase{}

@@ -6,12 +6,12 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/kava-labs/tendermint/abci/types"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	keep "github.com/cosmos/cosmos-sdk/x/bank/internal/keeper"
-	"github.com/cosmos/cosmos-sdk/x/bank/internal/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	authtypes "github.com/kava-labs/cosmos-sdk/x/auth/types"
+	keep "github.com/kava-labs/cosmos-sdk/x/bank/internal/keeper"
+	"github.com/kava-labs/cosmos-sdk/x/bank/internal/types"
 )
 
 func TestBalances(t *testing.T) {

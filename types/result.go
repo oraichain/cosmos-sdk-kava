@@ -7,9 +7,9 @@ import (
 	"math"
 	"strings"
 
-	"github.com/cosmos/cosmos-sdk/codec"
+	"github.com/kava-labs/cosmos-sdk/codec"
 
-	ctypes "github.com/tendermint/tendermint/rpc/core/types"
+	ctypes "github.com/kava-labs/tendermint/rpc/core/types"
 )
 
 // GasInfo defines tx execution gas context.

@@ -1,9 +1,9 @@
 package distribution
 
 import (
-	"github.com/cosmos/cosmos-sdk/x/distribution/client"
-	"github.com/cosmos/cosmos-sdk/x/distribution/keeper"
-	"github.com/cosmos/cosmos-sdk/x/distribution/types"
+	"github.com/kava-labs/cosmos-sdk/x/distribution/client"
+	"github.com/kava-labs/cosmos-sdk/x/distribution/keeper"
+	"github.com/kava-labs/cosmos-sdk/x/distribution/types"
 )
 
 // nolint

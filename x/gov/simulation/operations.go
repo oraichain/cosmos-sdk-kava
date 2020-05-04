@@ -5,14 +5,14 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/simapp/helpers"
-	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/gov/keeper"
-	"github.com/cosmos/cosmos-sdk/x/gov/types"
-	"github.com/cosmos/cosmos-sdk/x/simulation"
+	"github.com/kava-labs/cosmos-sdk/baseapp"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	"github.com/kava-labs/cosmos-sdk/simapp/helpers"
+	simappparams "github.com/kava-labs/cosmos-sdk/simapp/params"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/x/gov/keeper"
+	"github.com/kava-labs/cosmos-sdk/x/gov/types"
+	"github.com/kava-labs/cosmos-sdk/x/simulation"
 )
 
 var initialProposalID = uint64(100000000000000)

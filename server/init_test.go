@@ -5,10 +5,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/cosmos/cosmos-sdk/client/keys"
-	crkeys "github.com/cosmos/cosmos-sdk/crypto/keys"
-	"github.com/cosmos/cosmos-sdk/server"
-	"github.com/cosmos/cosmos-sdk/tests"
+	"github.com/kava-labs/cosmos-sdk/client/keys"
+	crkeys "github.com/kava-labs/cosmos-sdk/crypto/keys"
+	"github.com/kava-labs/cosmos-sdk/server"
+	"github.com/kava-labs/cosmos-sdk/tests"
 )
 
 func TestGenerateCoinKey(t *testing.T) {

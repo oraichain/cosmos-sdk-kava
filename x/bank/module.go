@@ -8,18 +8,18 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/spf13/cobra"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/kava-labs/tendermint/abci/types"
 
-	"github.com/cosmos/cosmos-sdk/client/context"
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/cosmos/cosmos-sdk/x/bank/client/cli"
-	"github.com/cosmos/cosmos-sdk/x/bank/client/rest"
-	"github.com/cosmos/cosmos-sdk/x/bank/internal/keeper"
-	"github.com/cosmos/cosmos-sdk/x/bank/internal/types"
-	"github.com/cosmos/cosmos-sdk/x/bank/simulation"
-	sim "github.com/cosmos/cosmos-sdk/x/simulation"
+	"github.com/kava-labs/cosmos-sdk/client/context"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/types/module"
+	"github.com/kava-labs/cosmos-sdk/x/bank/client/cli"
+	"github.com/kava-labs/cosmos-sdk/x/bank/client/rest"
+	"github.com/kava-labs/cosmos-sdk/x/bank/internal/keeper"
+	"github.com/kava-labs/cosmos-sdk/x/bank/internal/types"
+	"github.com/kava-labs/cosmos-sdk/x/bank/simulation"
+	sim "github.com/kava-labs/cosmos-sdk/x/simulation"
 )
 
 var (

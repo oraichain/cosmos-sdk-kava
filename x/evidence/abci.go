@@ -3,10 +3,10 @@ package evidence
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 
-	abci "github.com/tendermint/tendermint/abci/types"
-	tmtypes "github.com/tendermint/tendermint/types"
+	abci "github.com/kava-labs/tendermint/abci/types"
+	tmtypes "github.com/kava-labs/tendermint/types"
 )
 
 // BeginBlocker iterates through and handles any newly discovered evidence of

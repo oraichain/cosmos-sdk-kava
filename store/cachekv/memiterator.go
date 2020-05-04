@@ -4,7 +4,7 @@ import (
 	"container/list"
 	"errors"
 
-	tmkv "github.com/tendermint/tendermint/libs/kv"
+	tmkv "github.com/kava-labs/tendermint/libs/kv"
 	dbm "github.com/tendermint/tm-db"
 )
 

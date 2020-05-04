@@ -3,10 +3,10 @@ package keys
 import (
 	"fmt"
 
-	"github.com/tendermint/tendermint/crypto"
-	tmos "github.com/tendermint/tendermint/libs/os"
+	"github.com/kava-labs/tendermint/crypto"
+	tmos "github.com/kava-labs/tendermint/libs/os"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 )
 
 var _ Keybase = lazyKeybase{}

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io"
 
-	abci "github.com/tendermint/tendermint/abci/types"
-	tmkv "github.com/tendermint/tendermint/libs/kv"
+	abci "github.com/kava-labs/tendermint/abci/types"
+	tmkv "github.com/kava-labs/tendermint/libs/kv"
 	dbm "github.com/tendermint/tm-db"
 )
 

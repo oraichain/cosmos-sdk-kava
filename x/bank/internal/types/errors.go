@@ -1,7 +1,7 @@
 package types
 
 import (
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	sdkerrors "github.com/kava-labs/cosmos-sdk/types/errors"
 )
 
 // x/bank module sentinel errors

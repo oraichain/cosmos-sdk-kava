@@ -10,11 +10,11 @@ import (
 	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/tendermint/tendermint/libs/bech32"
-	"github.com/tendermint/tendermint/libs/cli"
+	"github.com/kava-labs/tendermint/libs/bech32"
+	"github.com/kava-labs/tendermint/libs/cli"
 
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/client/flags"
+	sdk "github.com/kava-labs/cosmos-sdk/types"
 )
 
 var config = sdk.GetConfig()

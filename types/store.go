@@ -1,10 +1,10 @@
 package types
 
 import (
-	tmkv "github.com/tendermint/tendermint/libs/kv"
+	tmkv "github.com/kava-labs/tendermint/libs/kv"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/store/types"
+	"github.com/kava-labs/cosmos-sdk/codec"
+	"github.com/kava-labs/cosmos-sdk/store/types"
 )
 
 // nolint - reexport

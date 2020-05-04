@@ -7,12 +7,12 @@ import (
 
 	"github.com/cosmos/go-bip39"
 	"github.com/pkg/errors"
-	tmcrypto "github.com/tendermint/tendermint/crypto"
-	"github.com/tendermint/tendermint/crypto/secp256k1"
+	tmcrypto "github.com/kava-labs/tendermint/crypto"
+	"github.com/kava-labs/tendermint/crypto/secp256k1"
 
-	"github.com/cosmos/cosmos-sdk/crypto"
-	"github.com/cosmos/cosmos-sdk/crypto/keys/hd"
-	"github.com/cosmos/cosmos-sdk/types"
+	"github.com/kava-labs/cosmos-sdk/crypto"
+	"github.com/kava-labs/cosmos-sdk/crypto/keys/hd"
+	"github.com/kava-labs/cosmos-sdk/types"
 )
 
 type (

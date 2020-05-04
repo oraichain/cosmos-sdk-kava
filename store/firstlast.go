@@ -3,9 +3,9 @@ package store
 import (
 	"bytes"
 
-	tmkv "github.com/tendermint/tendermint/libs/kv"
+	tmkv "github.com/kava-labs/tendermint/libs/kv"
 
-	"github.com/cosmos/cosmos-sdk/store/types"
+	"github.com/kava-labs/cosmos-sdk/store/types"
 )
 
 // Gets the first item.
