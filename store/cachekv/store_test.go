@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 	tmrand "github.com/kava-labs/tendermint/libs/rand"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/store/cachekv"
 	"github.com/kava-labs/cosmos-sdk/store/dbadapter"

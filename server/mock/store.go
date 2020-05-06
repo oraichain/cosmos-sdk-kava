@@ -3,7 +3,7 @@ package mock
 import (
 	"io"
 
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	store "github.com/kava-labs/cosmos-sdk/store/types"
 	sdk "github.com/kava-labs/cosmos-sdk/types"

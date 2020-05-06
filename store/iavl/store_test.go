@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/kava-labs/iavl"
 	abci "github.com/kava-labs/tendermint/abci/types"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/store/types"
 )

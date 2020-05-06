@@ -8,7 +8,7 @@ import (
 	"sync"
 
 	tmkv "github.com/kava-labs/tendermint/libs/kv"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/store/tracekv"
 	"github.com/kava-labs/cosmos-sdk/store/types"

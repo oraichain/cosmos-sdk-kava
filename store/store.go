@@ -1,7 +1,7 @@
 package store
 
 import (
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/store/cache"
 	"github.com/kava-labs/cosmos-sdk/store/rootmulti"

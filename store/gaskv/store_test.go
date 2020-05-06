@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/store/dbadapter"
 	"github.com/kava-labs/cosmos-sdk/store/gaskv"

@@ -7,7 +7,7 @@ import (
 	abci "github.com/kava-labs/tendermint/abci/types"
 	"github.com/kava-labs/tendermint/libs/log"
 	tmos "github.com/kava-labs/tendermint/libs/os"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	bam "github.com/kava-labs/cosmos-sdk/baseapp"
 	"github.com/kava-labs/cosmos-sdk/codec"

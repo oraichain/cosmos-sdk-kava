@@ -16,8 +16,9 @@ require (
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/gtank/merlin v0.1.1 // indirect
 	github.com/hashicorp/golang-lru v0.5.4
-	github.com/kava-labs/iavl v0.13.4-0.20200505052424-c6437f617584
-	github.com/kava-labs/tendermint v0.33.4-0.20200505050845-6c848ee6dc48
+	github.com/kava-labs/iavl v0.13.4-0.20200506042627-f849adb79934
+	github.com/kava-labs/tendermint v0.33.4-0.20200506042050-c611c5308a53
+	github.com/kava-labs/tm-db v0.4.2-0.20200506040135-3f7b09feebcd
 	github.com/mattn/go-isatty v0.0.12
 	github.com/pelletier/go-toml v1.6.0
 	github.com/pkg/errors v0.9.1
@@ -33,7 +34,6 @@ require (
 	github.com/tendermint/btcd v0.1.1
 	github.com/tendermint/crypto v0.0.0-20191022145703-50d29ede1e15
 	github.com/tendermint/go-amino v0.15.1
-	github.com/tendermint/tm-db v0.5.1
 	golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e // indirect
 	google.golang.org/grpc v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.2.8
@@ -43,6 +43,8 @@ go 1.13
 
 replace github.com/keybase/go-keychain => github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4
 
-replace github.com/tendermint/tendermint => github.com/kava-labs/tendermint v0.33.4-0.20200505050845-6c848ee6dc48
+replace github.com/tendermint/tendermint => github.com/kava-labs/tendermint v0.33.4-0.20200506042050-c611c5308a53
 
-replace github.com/tendermint/iavl => github.com/kava-labs/iavl v0.13.4-0.20200505052424-c6437f617584
+replace github.com/tendermint/iavl => github.com/kava-labs/iavl v0.13.4-0.20200506042627-f849adb79934
+
+replace github.com/tendermint/tm-db => github.com/kava-labs/tm-db v0.4.2-0.20200506040135-3f7b09feebcd

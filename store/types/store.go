@@ -6,7 +6,7 @@ import (
 
 	abci "github.com/kava-labs/tendermint/abci/types"
 	tmkv "github.com/kava-labs/tendermint/libs/kv"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 )
 
 type Store interface { //nolint

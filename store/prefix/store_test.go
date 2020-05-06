@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	tiavl "github.com/kava-labs/iavl"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 )
 
 // copied from iavl/store_test.go

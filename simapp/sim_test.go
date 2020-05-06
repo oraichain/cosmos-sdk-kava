@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 	abci "github.com/kava-labs/tendermint/abci/types"
 	"github.com/kava-labs/tendermint/libs/log"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/baseapp"
 	"github.com/kava-labs/cosmos-sdk/simapp/helpers"

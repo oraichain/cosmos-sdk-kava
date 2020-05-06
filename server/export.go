@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	tmtypes "github.com/kava-labs/tendermint/types"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/client/flags"
 	"github.com/kava-labs/cosmos-sdk/codec"

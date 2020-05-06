@@ -9,7 +9,7 @@ import (
 	abci "github.com/kava-labs/tendermint/abci/types"
 	"github.com/kava-labs/tendermint/libs/log"
 	tmtypes "github.com/kava-labs/tendermint/types"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	sdk "github.com/kava-labs/cosmos-sdk/types"
 )

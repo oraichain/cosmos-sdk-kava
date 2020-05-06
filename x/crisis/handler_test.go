@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/stretchr/testify/require"
 	abci "github.com/kava-labs/tendermint/abci/types"
 	"github.com/kava-labs/tendermint/libs/log"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
+	"github.com/stretchr/testify/require"
 
 	"github.com/kava-labs/cosmos-sdk/simapp"
 	sdk "github.com/kava-labs/cosmos-sdk/types"

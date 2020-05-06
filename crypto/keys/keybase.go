@@ -8,7 +8,7 @@ import (
 	"github.com/pkg/errors"
 	tmcrypto "github.com/kava-labs/tendermint/crypto"
 	cryptoAmino "github.com/kava-labs/tendermint/crypto/encoding/amino"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/crypto/keys/keyerror"
 	"github.com/kava-labs/cosmos-sdk/crypto/keys/mintkey"

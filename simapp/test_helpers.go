@@ -9,7 +9,7 @@ import (
 	"github.com/kava-labs/tendermint/crypto"
 	"github.com/kava-labs/tendermint/crypto/ed25519"
 	"github.com/kava-labs/tendermint/libs/log"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	bam "github.com/kava-labs/cosmos-sdk/baseapp"
 	"github.com/kava-labs/cosmos-sdk/codec"

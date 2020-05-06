@@ -8,7 +8,7 @@ import (
 	abci "github.com/kava-labs/tendermint/abci/types"
 	"github.com/kava-labs/tendermint/crypto/merkle"
 	"github.com/kava-labs/tendermint/crypto/tmhash"
-	dbm "github.com/tendermint/tm-db"
+	dbm "github.com/kava-labs/tm-db"
 
 	"github.com/kava-labs/cosmos-sdk/store/cachemulti"
 	"github.com/kava-labs/cosmos-sdk/store/dbadapter"
