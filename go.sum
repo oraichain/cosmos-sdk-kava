@@ -253,10 +253,10 @@ github.com/json-iterator/go v1.1.9/go.mod h1:KdQUCv79m/52Kvf8AW2vK1V8akMuk1QjK/u
 github.com/jtolds/gls v4.20.0+incompatible h1:xdiiI2gbIgH/gLH7ADydsJ1uDOEzR8yvV7C0MuV77Wo=
 github.com/jtolds/gls v4.20.0+incompatible/go.mod h1:QJZ7F/aHp+rZTRtaJ1ow/lLfFfVYBRgL+9YlvaHOwJU=
 github.com/julienschmidt/httprouter v1.2.0/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7VTCxuUUipMqKk8s4w=
-github.com/kava-labs/iavl v0.13.4-0.20200520051231-a96e07711757 h1:pgx/sLQ+8wWXSj/dQh7ogmioRYyu4GV+1VhJHUh8zJQ=
-github.com/kava-labs/iavl v0.13.4-0.20200520051231-a96e07711757/go.mod h1:LhzCB+6t9Xl3N5Mf0glujnvNX09BUnw480gmtohrmDo=
-github.com/kava-labs/tendermint v0.33.4-0.20200520050724-b26f703498c9 h1:p0K7SOftAURcqpm+sTZ+d8zG2QT36aGf03DmGzHRMLc=
-github.com/kava-labs/tendermint v0.33.4-0.20200520050724-b26f703498c9/go.mod h1:bQH35Apltdjh3SfnBgqNsrfWpEkP7QIO71JCM9VjXfs=
+github.com/kava-labs/iavl v0.13.4-0.20200520164545-88a15b563d3d h1:pZzCTWtYowkxak+4e4XQGthdpA8XjchskSyfJKkG70U=
+github.com/kava-labs/iavl v0.13.4-0.20200520164545-88a15b563d3d/go.mod h1:VLoBw5db5y2idTscFjf+edtk5ddLGrCRH6M/948/FCE=
+github.com/kava-labs/tendermint v0.33.4-0.20200520164040-22a423c4e84a h1:WFe56rJWYaTmZ6c9DdtS5ZKs1c9Jd8jSe7QlVtUJYJY=
+github.com/kava-labs/tendermint v0.33.4-0.20200520164040-22a423c4e84a/go.mod h1:bQH35Apltdjh3SfnBgqNsrfWpEkP7QIO71JCM9VjXfs=
 github.com/kava-labs/tm-db v0.4.1-stable h1:yGn7r+cd58oSQ7DyVXlckiFOImEMOkqfxQSAjfnEfrk=
 github.com/kava-labs/tm-db v0.4.1-stable/go.mod h1:dRComvpd8Xj0cJun86vy2bc1i5b8gm15dQlRm1+BiMs=
 github.com/kisielk/errcheck v1.1.0/go.mod h1:EZBBE59ingxPouuu3KfxchcWSUPOHkagtvWXihfKN4Q=
@@ -521,8 +521,6 @@ golang.org/x/net v0.0.0-20190522155817-f3200d17e092/go.mod h1:HSz+uSET+XFnRR8LxR
 golang.org/x/net v0.0.0-20190603091049-60506f45cf65/go.mod h1:HSz+uSET+XFnRR8LxR5pz3Of3rY3CfYBVs4xY44aLks=
 golang.org/x/net v0.0.0-20190613194153-d28f0bde5980/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
-golang.org/x/net v0.0.0-20190628185345-da137c7871d7 h1:rTIdg5QFRR7XCaK4LCjBiPbx8j4DQRpdYMnGn/bJUEU=
-golang.org/x/net v0.0.0-20190628185345-da137c7871d7/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/net v0.0.0-20190813141303-74dc4d7220e7 h1:fHDIZ2oxGnUZRN6WgWFCbYBjH9uqVPRCUVUDhs0wnbA=
 golang.org/x/net v0.0.0-20190813141303-74dc4d7220e7/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e h1:3G+cUijn7XD+S4eJFddp53Pv7+slrESplyjG25HgL+k=
@@ -606,9 +604,6 @@ google.golang.org/grpc v1.23.1/go.mod h1:Y5yQAOtifL1yxbo5wqy6BxZv8vAUGQwXBOALyac
 google.golang.org/grpc v1.25.1/go.mod h1:c3i+UQWmh7LiEpx4sFZnkU36qjEYZ0imhYfXVyQciAY=
 google.golang.org/grpc v1.26.0 h1:2dTRdpdFEEhJYQD8EMLB61nnrzSCTbG38PhqdhvOltg=
 google.golang.org/grpc v1.26.0/go.mod h1:qbnxyOmOxrQa7FizSgH+ReBfzJrCY1pSN7KXBS8abTk=
-google.golang.org/grpc v1.27.1/go.mod h1:qbnxyOmOxrQa7FizSgH+ReBfzJrCY1pSN7KXBS8abTk=
-google.golang.org/grpc v1.28.1 h1:C1QC6KzgSiLyBabDi87BbjaGreoRgGUF5nOyvfrAZ1k=
-google.golang.org/grpc v1.28.1/go.mod h1:rpkK4SK4GF4Ach/+MFLZUBavHOvF2JJB5uozKKal+60=
 google.golang.org/grpc v1.29.1 h1:EC2SB8S04d2r73uptxphDSUG+kTKVgjRPF+N3xpxRB4=
 google.golang.org/grpc v1.29.1/go.mod h1:itym6AZVZYACWQqET3MqgPpjcuV5QH3BxFS3IjizoKk=
 google.golang.org/protobuf v0.0.0-20200109180630-ec00e32a8dfd/go.mod h1:DFci5gLYBciE7Vtevhsrf46CRTquxDuWsQurQQe4oz8=
