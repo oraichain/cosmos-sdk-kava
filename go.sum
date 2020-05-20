@@ -253,10 +253,10 @@ github.com/json-iterator/go v1.1.9/go.mod h1:KdQUCv79m/52Kvf8AW2vK1V8akMuk1QjK/u
 github.com/jtolds/gls v4.20.0+incompatible h1:xdiiI2gbIgH/gLH7ADydsJ1uDOEzR8yvV7C0MuV77Wo=
 github.com/jtolds/gls v4.20.0+incompatible/go.mod h1:QJZ7F/aHp+rZTRtaJ1ow/lLfFfVYBRgL+9YlvaHOwJU=
 github.com/julienschmidt/httprouter v1.2.0/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7VTCxuUUipMqKk8s4w=
-github.com/kava-labs/iavl v0.13.4-0.20200520164545-88a15b563d3d h1:pZzCTWtYowkxak+4e4XQGthdpA8XjchskSyfJKkG70U=
-github.com/kava-labs/iavl v0.13.4-0.20200520164545-88a15b563d3d/go.mod h1:VLoBw5db5y2idTscFjf+edtk5ddLGrCRH6M/948/FCE=
-github.com/kava-labs/tendermint v0.33.4-0.20200520164040-22a423c4e84a h1:WFe56rJWYaTmZ6c9DdtS5ZKs1c9Jd8jSe7QlVtUJYJY=
-github.com/kava-labs/tendermint v0.33.4-0.20200520164040-22a423c4e84a/go.mod h1:bQH35Apltdjh3SfnBgqNsrfWpEkP7QIO71JCM9VjXfs=
+github.com/kava-labs/iavl v0.13.4-0.20200520210615-a0dc5a5bfefe h1:inmxbLaPlQa0IPwZdAyOTh1/pAbRqwDOTFLpMhsSefQ=
+github.com/kava-labs/iavl v0.13.4-0.20200520210615-a0dc5a5bfefe/go.mod h1:2CisPbbr6oMGRTOgmqQE4DaBRSc4p+sMHZCP3tU91E4=
+github.com/kava-labs/tendermint v0.33.4-0.20200520210209-5647477ed5f1 h1:fjLw/cwkvwVGfc6mRmZB2ic1dwxO7+f0dpZftGTMTg0=
+github.com/kava-labs/tendermint v0.33.4-0.20200520210209-5647477ed5f1/go.mod h1:bQH35Apltdjh3SfnBgqNsrfWpEkP7QIO71JCM9VjXfs=
 github.com/kava-labs/tm-db v0.4.1-stable h1:yGn7r+cd58oSQ7DyVXlckiFOImEMOkqfxQSAjfnEfrk=
 github.com/kava-labs/tm-db v0.4.1-stable/go.mod h1:dRComvpd8Xj0cJun86vy2bc1i5b8gm15dQlRm1+BiMs=
 github.com/kisielk/errcheck v1.1.0/go.mod h1:EZBBE59ingxPouuu3KfxchcWSUPOHkagtvWXihfKN4Q=
