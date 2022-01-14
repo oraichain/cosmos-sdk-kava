@@ -613,6 +613,7 @@ func (app *BaseApp) runTx(mode runTxMode, txBytes []byte) (gInfo sdk.GasInfo, re
 			ctx.BlockGasMeter().ConsumeGas(
 				ctx.GasMeter().GasConsumedToLimit(), "block gas meter",
 			)
+
 			if ctx.BlockGasMeter().GasConsumed() < startingGas {
 				panic(sdk.ErrorGasOverflow{Descriptor: "tx gas summation"})
 			}
