@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	cosmossdk.io/core v0.5.1
-	cosmossdk.io/log v1.1.0
+	cosmossdk.io/log v1.2.0
 	github.com/99designs/keyring v1.2.1
 	github.com/armon/go-metrics v0.4.1
 	github.com/bgentry/speakeasy v0.1.1-0.20220910012023-760eaf8b6816
@@ -12,9 +12,9 @@ require (
 	github.com/coinbase/rosetta-sdk-go v0.7.9
 	github.com/confio/ics23/go v0.9.0
 	github.com/cosmos/btcutil v1.0.4
-	github.com/cosmos/cosmos-db v1.0.0-rc.1
+	github.com/cosmos/cosmos-db v1.0.0
 	github.com/cosmos/go-bip39 v1.0.0
-	github.com/cosmos/iavl v1.0.0-alpha.1.0.20230526141245-75f9901eb264
+	github.com/cosmos/iavl v1.0.0
 	github.com/cosmos/ics23/go v0.10.0
 	github.com/cosmos/ledger-cosmos-go v0.12.2
 	github.com/gogo/gateway v1.1.0
@@ -30,15 +30,15 @@ require (
 	github.com/improbable-eng/grpc-web v0.14.1
 	github.com/jhump/protoreflect v1.13.1-0.20220928232736-101791cb1b4c
 	github.com/magiconair/properties v1.8.6
-	github.com/mattn/go-isatty v0.0.18
+	github.com/mattn/go-isatty v0.0.19
 	github.com/otiai10/copy v1.6.0
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.14.0
 	github.com/prometheus/common v0.37.0
 	github.com/rakyll/statik v0.1.7
 	github.com/regen-network/cosmos-proto v0.3.1
-	github.com/rs/zerolog v1.29.1
-	github.com/spf13/cast v1.5.0
+	github.com/rs/zerolog v1.30.0
+	github.com/spf13/cast v1.5.1
 	github.com/spf13/cobra v1.6.1
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.14.0

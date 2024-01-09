@@ -37,7 +37,8 @@ var (
 
 // Store Implements types.KVStore and CommitKVStore.
 type Store struct {
-	tree Tree
+	tree   Tree
+	logger log.Logger
 }
 
 // LoadStore returns an IAVL Store as a CommitKVStore. Internally, it will load the
@@ -52,10 +53,7 @@ func LoadStore(db dbm.DB, logger log.Logger, key types.StoreKey, id types.Commit
 // provided DB. An error is returned if the version fails to load, or if called with a positive
 // version on an empty tree.
 func LoadStoreWithInitialVersion(db dbm.DB, logger log.Logger, key types.StoreKey, id types.CommitID, initialVersion uint64, cacheSize int, disableFastNode bool) (types.CommitKVStore, error) {
-	tree, err := iavl.NewMutableTreeWithOpts(wrapper.NewCosmosDB(db), cacheSize, &iavl.Options{InitialVersion: initialVersion}, disableFastNode, clog.NewNopLogger())
-	if err != nil {
-		return nil, err
-	}
+	tree := iavl.NewMutableTree(wrapper.NewCosmosDB(db), cacheSize, disableFastNode, clog.NewNopLogger(), iavl.InitialVersionOption(initialVersion))
 
 	isUpgradeable, err := tree.IsUpgradeable()
 	if err != nil {
@@ -81,7 +79,8 @@ func LoadStoreWithInitialVersion(db dbm.DB, logger log.Logger, key types.StoreKe
 	}
 
 	return &Store{
-		tree: &mutableTree{tree},
+		tree:   &mutableTree{tree},
+		logger: logger,
 	}, nil
 }
 
@@ -104,7 +103,7 @@ func UnsafeNewStore(tree *iavl.MutableTree) *Store {
 // Any mutable operations executed will result in a panic.
 func (st *Store) GetImmutable(version int64) (*Store, error) {
 	if !st.VersionExists(version) {
-		return &Store{tree: &immutableTree{&iavl.ImmutableTree{}}}, fmt.Errorf("version mismatch on immutable IAVL tree; version does not exist. Version has either been pruned, or is for a future block height")
+		return nil, fmt.Errorf("version mismatch on immutable IAVL tree; version does not exist. Version has either been pruned, or is for a future block height")
 	}
 
 	iTree, err := st.tree.GetImmutable(version)
@@ -135,10 +134,7 @@ func (st *Store) Commit() types.CommitID {
 
 // LastCommitID implements Committer.
 func (st *Store) LastCommitID() types.CommitID {
-	hash, err := st.tree.Hash()
-	if err != nil {
-		panic(err)
-	}
+	hash := st.tree.Hash()
 
 	return types.CommitID{
 		Version: st.tree.Version(),
@@ -165,7 +161,7 @@ func (st *Store) VersionExists(version int64) bool {
 
 // GetAllVersions returns all versions in the iavl tree
 func (st *Store) GetAllVersions() []int {
-	return st.tree.(*mutableTree).AvailableVersions()
+	return st.tree.AvailableVersions()
 }
 
 // Implements Store.
@@ -187,7 +183,10 @@ func (st *Store) CacheWrapWithTrace(w io.Writer, tc types.TraceContext) types.Ca
 func (st *Store) Set(key, value []byte) {
 	types.AssertValidKey(key)
 	types.AssertValidValue(value)
-	st.tree.Set(key, value)
+	_, err := st.tree.Set(key, value)
+	if err != nil && st.logger != nil {
+		st.logger.Error("iavl set error", "error", err.Error())
+	}
 }
 
 // Implements types.KVStore.
@@ -213,7 +212,10 @@ func (st *Store) Has(key []byte) (exists bool) {
 // Implements types.KVStore.
 func (st *Store) Delete(key []byte) {
 	defer telemetry.MeasureSince(time.Now(), "store", "iavl", "delete")
-	st.tree.Remove(key)
+	_, _, err := st.tree.Remove(key)
+	if err != nil {
+		panic(err)
+	}
 }
 
 // DeleteVersionsTo deletes versions upto the given version from the MutableTree. An error
