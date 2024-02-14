@@ -636,6 +636,12 @@ func (app *BaseApp) runTx(mode runTxMode, txBytes []byte) (gInfo sdk.GasInfo, re
 		return gInfo, nil, nil, 0, sdkerrors.Wrap(sdkerrors.ErrOutOfGas, "no block gas left to run tx")
 	}
 
+	// Add a gas charge for v0.23.0 mainnet upgrade in order to keep state compatibility
+	// and work around block gas charge from begin block when validate basic fails
+	if ctx.ChainID() == "kava_2222-10" && ctx.BlockHeight() == int64(4832500) {
+		ctx.GasMeter().ConsumeGas(uint64(12754029), "kava v0.23.0 gas adjustment for begin blocker optimizations")
+	}
+
 	defer func() {
 		if r := recover(); r != nil {
 			recoveryMW := newOutOfGasRecoveryMiddleware(gasWanted, ctx, app.runTxRecoveryMiddleware)
