@@ -4,7 +4,7 @@ module github.com/cosmos/cosmos-sdk
 
 require (
 	cosmossdk.io/api v0.3.1
-	cosmossdk.io/core v0.5.1
+	cosmossdk.io/core v0.6.1
 	cosmossdk.io/depinject v1.0.0-alpha.4
 	cosmossdk.io/errors v1.0.1
 	cosmossdk.io/log v1.3.1
@@ -27,7 +27,7 @@ require (
 	github.com/cosmos/gogogateway v1.2.0
 	github.com/cosmos/gogoproto v1.4.10
 	github.com/cosmos/iavl v0.20.1
-	github.com/cosmos/ledger-cosmos-go v0.12.4
+	github.com/cosmos/ledger-cosmos-go v0.13.1
 	github.com/golang/mock v1.6.0
 	github.com/golang/protobuf v1.5.3
 	github.com/google/gofuzz v1.2.0
