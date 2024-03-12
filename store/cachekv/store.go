@@ -81,6 +81,16 @@ func (store *Store) Set(key []byte, value []byte) {
 	store.setCacheValue(key, value, false, true)
 }
 
+// Unset removes the key from the cache, removing any write or delete for the key.
+func (store *Store) Unset(key []byte) {
+	keyStr := conv.UnsafeBytesToStr(key)
+
+	delete(store.cache, keyStr)
+	delete(store.deleted, keyStr)
+	delete(store.unsortedCache, keyStr)
+	store.sortedCache.Delete(key)
+}
+
 // Has implements types.KVStore.
 func (store *Store) Has(key []byte) bool {
 	value := store.Get(key)

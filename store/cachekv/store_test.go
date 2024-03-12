@@ -1,6 +1,7 @@
 package cachekv_test
 
 import (
+	"bytes"
 	"fmt"
 	"strconv"
 	"testing"
@@ -63,6 +64,96 @@ func TestCacheKVStore(t *testing.T) {
 	st.Write()
 	require.Empty(t, st.Get(keyFmt(1)), "Expected `key1` to be empty")
 	require.Empty(t, mem.Get(keyFmt(1)), "Expected `key1` to be empty")
+}
+
+func TestCacheKVStoreUnset(t *testing.T) {
+	key := keyFmt(1)
+	val := valFmt(1)
+
+	tests := []struct {
+		name          string
+		maleate       func(*cachekv.Store)
+		expectedValue []byte
+	}{
+		{
+			"basic Set and Unset",
+			func(s *cachekv.Store) {
+				s.Set(key, val)
+				s.Unset(key)
+			},
+			nil,
+		},
+		{
+			"Delete",
+			func(s *cachekv.Store) {
+				s.Set(key, val)
+				s.Write()
+
+				require.Equal(t, val, s.Get(key), "value should be written")
+
+				s.Delete(key)
+				s.Unset(key)
+			},
+			valFmt(1),
+		},
+		{
+			"Set modify value",
+			func(s *cachekv.Store) {
+				s.Set(key, val)
+				s.Write()
+
+				require.Equal(t, val, s.Get(key), "value should be written")
+
+				// Different value
+				s.Set(key, valFmt(2))
+				s.Unset(key)
+			},
+			valFmt(1),
+		},
+		{
+			"Child Unset, unchanged parent",
+			func(s *cachekv.Store) {
+				s.Set(key, val)
+				s.Write()
+
+				require.Equal(t, val, s.Get(key), "value should be written")
+
+				s2 := cachekv.NewStore(s)
+				s2.Unset(key)
+			},
+			valFmt(1),
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			mem := dbadapter.Store{DB: dbm.NewMemDB()}
+			st := cachekv.NewStore(mem)
+
+			tt.maleate(st)
+			require.Equal(
+				t,
+				tt.expectedValue,
+				st.Get(key),
+			)
+
+			itrFound := false
+
+			itr := st.Iterator(nil, nil)
+			for ; itr.Valid(); itr.Next() {
+				if bytes.Equal(itr.Key(), key) {
+					require.Equal(t, tt.expectedValue, itr.Value())
+					itrFound = true
+				}
+			}
+
+			if tt.expectedValue == nil {
+				require.False(t, itrFound, "key should not be found in iterator")
+			} else {
+				require.True(t, itrFound, "key should not be found")
+			}
+		})
+	}
 }
 
 func TestCacheKVStoreNoNilSet(t *testing.T) {
