@@ -118,3 +118,11 @@ func TestGasKVStoreOutOfGasIterator(t *testing.T) {
 	iterator.Next()
 	require.Panics(t, func() { iterator.Value() }, "Expected out-of-gas")
 }
+
+func TestGasKVStoreGetParent(t *testing.T) {
+	mem := dbadapter.Store{DB: dbm.NewMemDB()}
+	meter := types.NewGasMeter(10000)
+
+	st := gaskv.NewStore(mem, meter, types.KVGasConfig())
+	require.Equal(t, mem, st.GetParent())
+}
