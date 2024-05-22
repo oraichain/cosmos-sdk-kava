@@ -1037,6 +1037,9 @@ func (rs *Store) DeleteKVStore(keyName string) error {
 		return errors.Wrapf(err, "failed to delete store %s", key.Name())
 	}
 
+	// write the delete to disk?
+	store.Commit()
+
 	if _, ok := rs.stores[key]; ok {
 		delete(rs.stores, key)
 		delete(rs.storesParams, key)
@@ -1159,6 +1162,8 @@ func commitStores(version int64, storeMap map[types.StoreKey]types.CommitKVStore
 	for _, key := range storeKeys {
 		store := storeMap[key]
 		last := store.LastCommitID()
+
+		fmt.Printf("commitStores - %s - last version = %d - new version = %d", key.Name(), last.Version, version)
 
 		// If a commit event execution is interrupted, a new iavl store's version
 		// will be larger than the RMS's metadata, when the block is replayed, we
