@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"os"
 	"time"
 
 	clog "cosmossdk.io/log"
@@ -14,6 +15,7 @@ import (
 	ics23 "github.com/confio/ics23/go"
 	"github.com/cosmos/iavl"
 	iavldb "github.com/cosmos/iavl/db"
+	"github.com/rs/zerolog"
 
 	"github.com/cosmos/cosmos-sdk/store/cachekv"
 	pruningtypes "github.com/cosmos/cosmos-sdk/store/pruning/types"
@@ -56,7 +58,7 @@ func LoadStore(db dbm.DB, logger log.Logger, key types.StoreKey, id types.Commit
 // version on an empty tree.
 func LoadStoreWithInitialVersion(db dbm.DB, logger log.Logger, key types.StoreKey, id types.CommitID, lazyLoading bool, initialVersion uint64, cacheSize int, disableFastNode bool) (types.CommitKVStore, error) {
 	cosmosdb := wrapper.NewCosmosDB(db)
-	tree := iavl.NewMutableTree(iavldb.NewWrapper(cosmosdb), cacheSize, disableFastNode, clog.NewNopLogger(), iavl.InitialVersionOption(initialVersion))
+	tree := iavl.NewMutableTree(iavldb.NewWrapper(cosmosdb), cacheSize, disableFastNode, clog.NewLogger(os.Stderr, clog.LevelOption(zerolog.InfoLevel)), iavl.InitialVersionOption(initialVersion))
 
 	isUpgradeable, err := tree.IsUpgradeable()
 	if err != nil {
