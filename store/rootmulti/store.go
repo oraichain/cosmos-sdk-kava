@@ -1037,9 +1037,6 @@ func (rs *Store) DeleteKVStore(keyName string) error {
 		return errors.Wrapf(err, "failed to delete store %s", key.Name())
 	}
 
-	// write the delete to disk?
-	store.Commit()
-
 	if _, ok := rs.stores[key]; ok {
 		delete(rs.stores, key)
 		delete(rs.storesParams, key)
@@ -1060,7 +1057,7 @@ func (rs *Store) RollbackToVersion(target int64) error {
 			// If the store is wrapped with an inter-block cache, we must first unwrap
 			// it to get the underlying IAVL store.
 			store = rs.GetCommitKVStore(key)
-			rs.logger.Debug("loading version %d for store with key %s (%s)\n", target, key.String(), key.Name())
+			rs.logger.Info("rollback: loading version %d for store with key %s (%s)\n", target, key.String(), key.Name())
 			_, err := store.(*iavl.Store).LoadVersionForOverwriting(target)
 			if err != nil {
 				return errors.Wrapf(err, "failed loading version %d for store with key name '%s'", target, key.Name())
@@ -1068,7 +1065,9 @@ func (rs *Store) RollbackToVersion(target int64) error {
 		}
 	}
 
-	rs.flushMetadata(rs.db, target, rs.buildCommitInfo(target))
+	commitInfo := rs.buildCommitInfo(target)
+	rs.logger.Info("flushing metadata after rollback", "commit info", commitInfo, "target version", target)
+	rs.flushMetadata(rs.db, target, commitInfo)
 
 	return rs.LoadLatestVersion()
 }
