@@ -60,7 +60,7 @@ func LoadStoreWithInitialVersion(db dbm.DB, logger log.Logger, key types.StoreKe
 	cosmosdb := wrapper.NewCosmosDB(db)
 	tree := iavl.NewMutableTree(iavldb.NewWrapper(cosmosdb), cacheSize, disableFastNode, clog.NewLogger(os.Stderr, clog.LevelOption(zerolog.InfoLevel)), iavl.InitialVersionOption(initialVersion))
 
-	logger.Info("LoadStoreWithInitialVersion", "key", key.Name(), "initial version", initialVersion, "commit id", id, "node db firstVersion")
+	logger.Info("LoadStoreWithInitialVersion", "key", key.Name(), "initial version", initialVersion, "commit id version", id.Version, "commit id hash", string(id.Hash))
 
 	isUpgradeable, err := tree.IsUpgradeable()
 	if err != nil {
@@ -82,10 +82,9 @@ func LoadStoreWithInitialVersion(db dbm.DB, logger log.Logger, key types.StoreKe
 	if err != nil {
 		return nil, err
 	}
-	logger.Info("finished loading iavl tree", "key name", key.Name(), "version loaded", v)
 
 	if logger != nil {
-		logger.Debug("Finished loading IAVL tree")
+		logger.Info("finished loading iavl tree", "key name", key.Name(), "version loaded", v)
 	}
 
 	return &Store{

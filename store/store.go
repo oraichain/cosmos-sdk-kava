@@ -1,6 +1,8 @@
 package store
 
 import (
+	"os"
+
 	dbm "github.com/cometbft/cometbft-db"
 	"github.com/cometbft/cometbft/libs/log"
 
@@ -10,7 +12,7 @@ import (
 )
 
 func NewCommitMultiStore(db dbm.DB) types.CommitMultiStore {
-	return rootmulti.NewStore(db, log.NewNopLogger())
+	return rootmulti.NewStore(db, log.NewTMLogger(os.Stderr))
 }
 
 func NewCommitKVStoreCacheManager() types.MultiStorePersistentCache {

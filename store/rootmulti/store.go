@@ -1057,7 +1057,7 @@ func (rs *Store) RollbackToVersion(target int64) error {
 			// If the store is wrapped with an inter-block cache, we must first unwrap
 			// it to get the underlying IAVL store.
 			store = rs.GetCommitKVStore(key)
-			rs.logger.Info("rollback: loading version %d for store with key %s (%s)\n", target, key.String(), key.Name())
+			rs.logger.Info("rollback loading version for store", "version", target, "key", key.Name())
 			_, err := store.(*iavl.Store).LoadVersionForOverwriting(target)
 			if err != nil {
 				return errors.Wrapf(err, "failed loading version %d for store with key name '%s'", target, key.Name())
@@ -1162,7 +1162,7 @@ func commitStores(version int64, storeMap map[types.StoreKey]types.CommitKVStore
 		store := storeMap[key]
 		last := store.LastCommitID()
 
-		fmt.Printf("commitStores - %s - last version = %d - new version = %d", key.Name(), last.Version, version)
+		fmt.Printf("commitStores - %s - last version = %d - new version = %d\n", key.Name(), last.Version, version)
 
 		// If a commit event execution is interrupted, a new iavl store's version
 		// will be larger than the RMS's metadata, when the block is replayed, we
