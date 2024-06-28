@@ -1173,7 +1173,7 @@ func commitStores(version int64, storeMap map[types.StoreKey]types.CommitKVStore
 		store := storeMap[key]
 		last := store.LastCommitID()
 
-		fmt.Printf("commitStores - %s - last version = %d - new version = %d\n", key.Name(), last.Version, version)
+		//fmt.Printf("commitStores - %s - last version = %d - new version = %d\n", key.Name(), last.Version, version)
 
 		// If a commit event execution is interrupted, a new iavl store's version
 		// will be larger than the RMS's metadata, when the block is replayed, we
