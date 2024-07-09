@@ -47,7 +47,7 @@ type AccountKeeperI interface {
 	GetNextAccountNumber(sdk.Context) uint64
 }
 
-type ProtoAccountConstructor func(currentBlockHeight int64) types.AccountI
+type ProtoAccountConstructor func() types.AccountI
 
 // AccountKeeper encodes/decodes accounts using the go-amino (binary)
 // encoding/decoding library.
